@@ -10,7 +10,7 @@ Summary: Dates is a simple calendar application
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: %{name}-%{version}.tar.bz2
+Source0: http://pimlico-project.org/sources/dates/%{name}-%{version}.tar.bz2
 License: GPL
 Group: Graphical desktop/GNOME
 Url: http://pimlico-project.org/dates.html
