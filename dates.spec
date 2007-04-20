@@ -6,14 +6,14 @@
 %define major 0
 %define libname %mklibname %{fakename}_ %major
 
-Summary: Tasks is a simple to do list application
+Summary: Dates is a simple calendar application
 Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: %{name}-%{version}.tar.bz2
 License: GPL
 Group: Graphical desktop/GNOME
-Url: http://projects.o-hand.com/dates
+Url: http://pimlico-project.org/dates.html
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libedataserver-devel
 BuildRequires: libgtk+2-devel
@@ -25,7 +25,8 @@ Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 
 %description
-Tasks is a simple to do list application.
+Dates is a small, lightweight calendar, featuring an innovative, unified,
+zooming view and is designed primarily for use on hand-held devices. 
 
 %package -n %libname
 Summary: Tasks libraries
