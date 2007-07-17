@@ -1,5 +1,5 @@
 %define name dates 
-%define version 0.4.3
+%define version 0.4.4
 %define release %mkrel 1
 
 %define fakename gtkdatesview
