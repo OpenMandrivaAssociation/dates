@@ -61,6 +61,7 @@ desktop-file-install --vendor="" \
   --remove-category="Application" \
   --remove-category="Office" \
   --remove-category="Project Management" \
+  --remove-key="SingleInstance" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications \
 $RPM_BUILD_ROOT%{_datadir}/applications/*
 
@@ -91,13 +92,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %libname
 %defattr(-,root,root)
-%{_libdir}/*.so.%{major}*
+#%{_libdir}/*.so.%{major}*
 
 %files -n %libname-devel
 %defattr(-,root,root)
-%{_libdir}/lib*.a
-%{_libdir}/*.so
-%attr(644,root,root) %{_libdir}/lib*.la
+#%{_libdir}/lib*.a
+#%{_libdir}/*.so
+#%attr(644,root,root) %{_libdir}/lib*.la
 %{_includedir}/*
 %_libdir/pkgconfig/*
 
