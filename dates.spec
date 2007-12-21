@@ -14,6 +14,7 @@ Source0: http://pimlico-project.org/sources/dates/%{name}-%{version}.tar.bz2
 License: GPL
 Group: Graphical desktop/GNOME
 Url: http://pimlico-project.org/dates.html
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libedataserver-devel
 BuildRequires: libgtk+2-devel
 BuildRequires: desktop-file-utils
