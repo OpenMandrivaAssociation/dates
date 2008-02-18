@@ -6,7 +6,7 @@
 %define major 0
 %define libname %mklibname %{fakename}_ %major
 
-Summary: Dates is a simple calendar application
+Summary: Simple calendar application
 Name: %{name}
 Version: %{version}
 Release: %{release}
