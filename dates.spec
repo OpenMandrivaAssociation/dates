@@ -1,6 +1,6 @@
 %define name dates 
-%define version 0.4.4
-%define release %mkrel 2
+%define version 0.4.6
+%define release %mkrel 1
 
 %define fakename gtkdatesview
 %define major 0
@@ -34,15 +34,6 @@ Group: System/Libraries
 
 %description -n %libname
 Libraries package for %{name}.
-
-%package -n %libname-devel
-Summary: Development package for %{name}
-Group: Development/Other
-Requires: %libname = %version
-Provides: %libname-devel = %version-%release
-
-%description -n %libname-devel
-Development package for %{name}
 
 %prep
 %setup -q
@@ -93,13 +84,5 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %libname
 %defattr(-,root,root)
 #%{_libdir}/*.so.%{major}*
-
-%files -n %libname-devel
-%defattr(-,root,root)
-#%{_libdir}/lib*.a
-#%{_libdir}/*.so
-#%attr(644,root,root) %{_libdir}/lib*.la
-%{_includedir}/*
-%_libdir/pkgconfig/*
 
 
