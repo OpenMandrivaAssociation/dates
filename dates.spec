@@ -19,6 +19,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libedataserver-devel
 BuildRequires: libgtk+2-devel
 BuildRequires: desktop-file-utils
+BuildRequires: intltool
 
 Requires: %libname = %version
 
