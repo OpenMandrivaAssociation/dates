@@ -1,5 +1,5 @@
 %define name dates 
-%define version 0.4.6
+%define version 0.4.7
 %define release %mkrel 1
 
 %define fakename gtkdatesview
@@ -10,8 +10,9 @@ Summary: Simple calendar application
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: http://pimlico-project.org/sources/dates/%{name}-%{version}.tar.bz2
-License: GPL
+Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
+Patch: dates-0.4.7-format-strings.patch
+License: GPLv2+ and LGPLv2+
 Group: Graphical desktop/GNOME
 Url: http://pimlico-project.org/dates.html
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -37,6 +38,7 @@ Libraries package for %{name}.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 %configure2_5x
