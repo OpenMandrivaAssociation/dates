@@ -1,6 +1,6 @@
 %define name dates 
 %define version 0.4.10
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define fakename gtkdatesview
 %define major 0
@@ -51,8 +51,6 @@ rm -rf $RPM_BUILD_ROOT
 %find_lang %name
 
 desktop-file-install --vendor="" \
-  --add-category="X-MandrivaLinux-Office-Accessories" \
-  --remove-category="Application" \
   --remove-category="Office" \
   --remove-category="Project Management" \
   --remove-key="SingleInstance" \
