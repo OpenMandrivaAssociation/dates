@@ -1,10 +1,6 @@
 %define name dates 
 %define version 0.4.10
-%define release %mkrel 2
-
-%define fakename gtkdatesview
-%define major 0
-%define libname %mklibname %{fakename}_ %major
+%define release %mkrel 3
 
 Summary: Simple calendar application
 Name: %{name}
@@ -18,24 +14,11 @@ Url: http://pimlico-project.org/dates.html
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libedataserver-devel
 BuildRequires: libgtk+2-devel
-BuildRequires: desktop-file-utils
 BuildRequires: intltool
-
-Requires: %libname = %version
-
-Requires(post): desktop-file-utils
-Requires(postun): desktop-file-utils
 
 %description
 Dates is a small, lightweight calendar, featuring an innovative, unified,
 zooming view and is designed primarily for use on hand-held devices. 
-
-%package -n %libname
-Summary: Tasks libraries
-Group: System/Libraries
-
-%description -n %libname
-Libraries package for %{name}.
 
 %prep
 %setup -q
@@ -48,14 +31,7 @@ Libraries package for %{name}.
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
-%find_lang %name
-
-desktop-file-install --vendor="" \
-  --remove-category="Office" \
-  --remove-category="Project Management" \
-  --remove-key="SingleInstance" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications \
-$RPM_BUILD_ROOT%{_datadir}/applications/*
+%find_lang Dates
 
 %if %mdkversion < 200900
 %post
@@ -72,15 +48,7 @@ $RPM_BUILD_ROOT%{_datadir}/applications/*
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
-
-%files -f %name.lang
+%files -f Dates.lang
 %defattr(-,root,root)
 %doc README AUTHORS ChangeLog 
 %_bindir/%{name}
@@ -88,10 +56,6 @@ rm -rf $RPM_BUILD_ROOT
 %_mandir/man1/*
 %_datadir/%{name}/*
 %_datadir/icons/hicolor/*
-%lang(all) %{_datadir}/locale/*/LC_MESSAGES/*
 
-%files -n %libname
-%defattr(-,root,root)
-#%{_libdir}/*.so.%{major}*
 
 
