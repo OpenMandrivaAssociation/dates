@@ -1,6 +1,6 @@
 %define name dates 
-%define version 0.4.10
-%define release %mkrel 3
+%define version 0.4.11
+%define release %mkrel 1
 
 Summary: Simple calendar application
 Name: %{name}
