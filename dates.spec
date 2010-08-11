@@ -7,7 +7,8 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
-Patch: dates-0.4.7-format-strings.patch
+Patch0: dates-0.4.7-format-strings.patch
+Patch1: dates-0.4.11-fix-tabs-in-makefiles.patch
 License: GPLv2+ and LGPLv2+
 Group: Graphical desktop/GNOME
 Url: http://pimlico-project.org/dates.html
@@ -22,7 +23,8 @@ zooming view and is designed primarily for use on hand-held devices.
 
 %prep
 %setup -q
-%patch -p1
+%apply_patches
+autoreconf -fi
 
 %build
 %configure2_5x
@@ -32,18 +34,6 @@ zooming view and is designed primarily for use on hand-held devices.
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 %find_lang Dates
-
-%if %mdkversion < 200900
-%post
-%update_icon_cache hicolor
-%update_menus
-%endif
-
-%if %mdkversion < 200900
-%postun
-%clean_icon_cache hicolor
-%clean_menus
-%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
