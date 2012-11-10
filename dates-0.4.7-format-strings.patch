@@ -1,0 +1,36 @@
+diff -p -up dates-0.4.7/src/dates_callbacks.c~ dates-0.4.7/src/dates_callbacks.c
+--- dates-0.4.7/src/dates_callbacks.c~	2009-03-12 20:15:26.000000000 +0100
++++ dates-0.4.7/src/dates_callbacks.c	2009-03-16 13:02:41.000000000 +0100
+@@ -363,7 +363,7 @@ dates_about_cb (GtkWidget *widget, Dates
+ 
+ 	if (!pixb) {
+ 		g_assert (error);
+-		g_warning (error->message);
++		g_warning ("%s", error->message);
+ 		g_clear_error (&error);
+ 	}
+ 
+diff -p -up dates-0.4.7/src/dates_gtk.c~ dates-0.4.7/src/dates_gtk.c
+--- dates-0.4.7/src/dates_gtk.c~	2009-03-12 18:20:33.000000000 +0100
++++ dates-0.4.7/src/dates_gtk.c	2009-03-16 13:00:44.000000000 +0100
+@@ -1119,7 +1119,7 @@ calendar_do_edit_dialog_response_cb (Gtk
+ 				GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+ 				GTK_MESSAGE_WARNING,
+ 				GTK_BUTTONS_NONE,
+-				prompt);
++												"%s", prompt);
+ 
+ 		g_free (prompt);
+ 
+diff -p -up dates-0.4.7/src/gconf-bridge.c~ dates-0.4.7/src/gconf-bridge.c
+--- dates-0.4.7/src/gconf-bridge.c~	2009-03-12 18:20:33.000000000 +0100
++++ dates-0.4.7/src/gconf-bridge.c	2009-03-16 13:03:17.000000000 +0100
+@@ -1220,7 +1220,7 @@ error_handler (GConfClient *client,
+                 dlg = gtk_message_dialog_new (NULL, 0,
+                                               GTK_MESSAGE_ERROR,
+                                               GTK_BUTTONS_OK,
+-                                              message);
++                                              "%s", message);
+                 g_free (message);
+ 
+                 gtk_message_dialog_format_secondary_text
