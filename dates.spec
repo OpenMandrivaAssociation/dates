@@ -23,7 +23,7 @@ zooming view and is designed primarily for use on hand-held devices.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 autoreconf -fi
 
 %build
