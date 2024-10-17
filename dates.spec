@@ -11,7 +11,7 @@ Patch0: dates-0.4.7-format-strings.patch
 Patch1: dates-0.4.11-fix-tabs-in-makefiles.patch
 License: GPLv2+ and LGPLv2+
 Group: Graphical desktop/GNOME
-Url: http://pimlico-project.org/dates.html
+Url: https://pimlico-project.org/dates.html
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libedataserver-devel
 BuildRequires: libgtk+2-devel
